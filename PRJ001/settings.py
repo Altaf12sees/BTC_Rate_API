@@ -11,13 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from os import environ
+import os
+from decouple import config
 
-env = environ.Env()
-environ.FileAwareEnv.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -40,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'APP001',
 ]
 
@@ -79,9 +78,9 @@ WSGI_APPLICATION = 'PRJ001.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'), 
-        'USER': env('DATABASE_USER'), 
-        'PASSWORD': env('DATABASE_PASS'),
+        'NAME': config('DATABASE_NAME'), 
+        'USER': config('DATABASE_USER'), 
+        'PASSWORD': config('DATABASE_PASS'),
         'HOST': '127.0.0.1', 
         'PORT': '5432',
     }

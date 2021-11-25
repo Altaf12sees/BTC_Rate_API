@@ -1,2 +1,9 @@
 Django==3.2.9
 django-environ==0.8.1
+psycopg2-binary==2.9.2
+djangorestframework==3.12.4
+python-dotenv==0.19.2
+python-decouple==3.5
+requests==2.26.0
+celery==5.2.1
+redis==4.0.2

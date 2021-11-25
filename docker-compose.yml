@@ -1,6 +1,14 @@
 version: '3'
 
 services:
+  db:
+    image: postgres
+    environment:
+      DATABASE_USER: postgres
+      DATABASE_NAME: db001
+      DATABASE_PASS: admin
+    # ports: 
+    #   - '5438:5432'
   web:
     build: .
     command: python3 manage.py runserver 0.0.0.0:8000
